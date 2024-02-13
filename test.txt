@@ -1,0 +1,11 @@
+postgresql
+mariaDB
+oracle
+mysql
+sqlite3
+
+Django
+
+3.0.5
+
+
