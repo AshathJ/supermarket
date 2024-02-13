@@ -1,0 +1,46 @@
+{% include 'main.html' %}
+
+{% block content %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<center>
+    <body>
+        <h3>Welcome Register</h3>
+        <hr>
+        <form  method="post" action="">
+            {% csrf_token  %}
+            <div class="mb-4">
+                <label for="" class="form-label">User Name</label>
+                {{form.username}}
+            </div>
+            <div class="mb-4">
+                <label for="" class="form-label">User Email</label>
+                {{form.email}}
+            </div>
+            <div class="mb-4">
+                <label for="" class="form-label">Password</label>
+                {{form.password1}}
+            </div>
+            <div class="mb-4">
+                <label for="" class="form-label">Confirm Password</label>
+                {{form.password2}}
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a href="{% url 'Login_page' %}">Login</a>
+        </form>
+    </body>
+</center>
+</html>
+
+<!--        <form method="post" action="{% url 'Register_page' %}">
+            {% csrf_token  %}
+            {{ form }}
+            <button value="Submit">Register</button> 
+            <a href="{% url 'Login_page' %}"></a>
+        </form>-->

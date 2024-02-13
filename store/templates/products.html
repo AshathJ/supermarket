@@ -1,0 +1,52 @@
+{% include 'main.html' %}
+
+{% block content %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body><br>
+    <h1> Welcome {{user}} </h1>
+        <center>
+            <h3>Products</h3>
+            <form method='post' action="{% url 'DB_page' %}">
+                {% csrf_token  %}
+                <tr>Search<td><input type="text" name="product" placeholder="Enter Only Products"><button>Search</button></td></tr>
+            </form>
+            <table>
+                <tr>
+                <td>Options:     Fruits , Mobiles , Books , Snacks , Meats , Dairyproducts , Vegetables , Oil
+                    </td>
+                </tr>
+            </table>
+        </center>
+<center>
+    <h2>{{P_name}}</h2>
+    <h2>{{name}}</h2>
+    {% if request.user.is_authenticated %}  
+    {% for i in groceries %}
+    <a href="{% url 'Fruit_page' i.item_name %}">{{i.item_name}}</a>|  |
+    {% endfor %}
+    {% else %}
+    <h1>Please Login First</h1>
+    {% endif %}
+</center>
+    
+    
+</body>
+</html>
+
+<!--
+
+<img src="{{ i.image.url }}" sizes="10px" alt="Fruits">
+
+    <picture>
+        <source media="(min-width:10px )" srcset="Product">
+        <img src="{{ i.image.url }}" alt="Product">
+    </picture>
+
+-->

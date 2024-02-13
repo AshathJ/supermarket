@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+</head>
+<body>
+    <h3>History</h3>
+    <table><tr><td><h2>Hi Mr.{{user}}</h2></td> <td><button >Back to <a href="{% url 'Home_page'  %}">  Home  </a></button></td> <td></td> <td></h3> <button >Are You sure ?<a href="{% url 'Clear_page' user %}">  Clear  </a></button></td></tr>
+        <tr>
+            <td><h4>Item       </h4></td><td></td>
+            <td><h4>Quantity   </h4></td>
+            <td><h4>Price      </h4></td><td></td>
+            <td><h4>Date & Time</h4></td><td></td>
+            <td></td>
+        </tr >
+        {% for i in Details %}
+        <tr>
+            <td>{{i.name}}      </td> <td></td>
+            <td>{{i.quantity}}  </td>
+            <td>{{i.price}}. Rs    </td><td></td>
+            <td>{{i.created_at}}</td><td></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

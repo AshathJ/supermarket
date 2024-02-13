@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+<body>
+    <center><h3>Enter Your's Details !</h3>
+        <button><a href="{% url 'Home_page' %}">Home</a></button>
+            <form method="post" action="{% url 'Success_page'  %}">
+                {% csrf_token  %}
+                <table>
+                    <tr>
+                        <td>
+                            Name:
+                        </td>
+                        <td>
+                            <input type="text" name="name" placeholder="Enter Your Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address:
+                        </td>
+                        <td>
+                            <input type="text" name="address" placeholder="Door/street/city/pincode">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td> <td><button type="submit">Order</button></td>
+                    </tr>
+                </table>
+                
+            </form>
+            
+    </center>
+</body>
+</html>

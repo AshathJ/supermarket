@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+</head>
+<center>
+    <body >
+        <h1>||THE OCEAN||</h1>
+        <hr> 
+        {% block content %}
+        {% endblock %}
+        | |-----------<button><a href="{% url 'Home_page'   %}">Home</a></button>----------              | | 
+        {% if request.user.is_authenticated %}
+        ----------<button>  <a href="{% url 'Cart_page' request.user  %}">Shopping Cart</a></button>---------- | |
+        ----------<button> <a href="{% url 'History_New_page' request.user %}" > {{request.user}}</a>'s History</button>----------        | |
+        ----------<button> <a href="{% url 'Logout_page' %}">Logout</a></button>----------        | |
+        {% else %}
+        ----------<button> <a href="{% url 'Login_page' %}">Login</a></button>----------            | |
+        ----------<button> <a href="{% url 'Register_page' %}">Register</a></button>----------      | |
+        {% endif %}
+        ----------<button> <a href="{% url 'Product_page' request.user %}">Products</a></button>---------- | |
+        ----------<button> <a href="{% url 'Collection_page' request.user  %}">Collections</a></button>---------- | |
+
+    </body> 
+</center>
+</html>

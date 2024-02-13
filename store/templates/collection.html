@@ -1,0 +1,77 @@
+
+{% load static %}
+{% include 'main.html' %}
+
+{% block content %}
+{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+</head>
+
+<body>
+    <h1>Welcome {{request.user}}</h1>
+        <center>
+        
+        <form method='post' action="search/">
+            {% csrf_token  %}
+            <tr>
+                <h3>Collections</h3>
+                <td>Search<input type="text" name="product" placeholder="Enter Only Items"><button>Search</button></td>
+            </tr>
+            <tr><td></td></tr>
+        </form>
+    </center>
+    <h3>Total Collections</h3>
+    {% if request.user.is_authenticated %}                                                                                                                                                                                                                                                            
+        
+            {% for i in fruits %}
+            | |   <a href="{% url 'Fruit_page' i.name %}">{{i.name}} </a>   | |
+            {% endfor %}
+    {% else %}
+    <h1>Please Login First</h1>
+    {% endif %}
+</body>
+</html>
+
+<!-- Dont Remove
+
+                <picture>
+                <source media="(min-width: )" srcset="">
+                <img src="" alt="">
+            </picture>
+            
+    {% if request.user.is_authenticated %} 
+    {% for i in groceries %}
+    <li>Fruit: {{i.item_name}}</li>
+    <li>Price:  {{i.item_price}}</li>
+    <li>Kg:     {{i.item_quantity}}</li>
+    <li>Colour: {{i.item_colour}}</li>
+    <li>Descriptive: {{i.Descriptive}}</li><br>
+    {% endfor %}
+    {% else %}
+    <h1>Please Login First</h1>
+    {% endif %}-->
+
+
+    <!----
+    <body>
+    <center>
+        <form method='post' action="search/">
+            {% csrf_token  %}
+            <tr>Item Search<td><input type="text" name="product"><button>Search</button></td></tr>
+        </form>
+    </center>
+{% if request.user.is_authenticated %}
+<h1> Welcome {{user}} </h1>  
+{% for i in groceries %}
+<a href="{% url 'Fruit_page' i.item_name %}">{{i.item_name}}</a>
+{% endfor %}
+{% else %}
+<h1>Please Login First</h1>
+{% endif %}
+</body>
+    -->

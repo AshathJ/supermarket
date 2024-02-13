@@ -1,0 +1,24 @@
+
+{% include 'main.html' %}
+
+{% block content %}
+{% endblock %}
+
+<h1>Home {{request.user}}</h1>
+<body>
+    <center>
+        
+        <form method='post' action="{% url 'DB_page' %}">
+            {% csrf_token  %}
+            <tr><h3>Ocean</h3>Search<td><input type="text" name="product" placeholder="Enter Only Products "><button>  Search</button></td></tr>
+        </form>
+        <br>
+        <table>
+            <tr>
+            <td>Options:   Fruits , Mobiles , Books , Snacks , Meats, Dairyproducts , Vegetables , Oil</td>
+            </tr>
+        </table>
+    </center>
+</body>
+
+

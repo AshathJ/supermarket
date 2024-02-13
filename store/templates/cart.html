@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+</head>
+<body>
+<center>
+    <h1>Today's {{request.user}} Purchase</h1><td><button>Back to <a href="{% url 'Collection_page' user  %}">Collections</a></button></td>
+    <table >
+        {% if request.user.is_authenticated %}
+            <tr>
+                <td><h3>Item</h3></td><td></td>
+                <td><h3>Quantity</h3></td><td></td>
+                <td><h3>Price</h3></td><td></td>
+                <td><h3></h3></td>
+            </tr >
+            {% for i in Details %}
+            <tr>
+                <td> {{i.name}}</td> <td></td>
+                <td>{{i.quantity}}</td><td></td>
+                <td>{{i.price}}. Rs</td><td></td>
+                <td><h3><button><a href="{%  url 'Cancel_page' i.name  %}">Cancel</a></button></h3></td>
+            </tr>
+            {% endfor %}
+        {% else %}
+        <h1>Please Login First</h1>
+        {% endif %}
+    </table>
+    <button><a href="{% url 'Order_page' %}">Purchase</a></button>
+</center>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruites</title>
+</head>
+<body>
+<center>
+        <h2>Purchase Items</h2>
+        {% if request.user.is_authenticated %}
+                {% for i in groceries %}
+                                <h3>{{i.item_name }}</h3>
+                                <h3>{{i.item_quantity }}</h3>
+                                <h3>{{i.item_piece }}</h3>
+                                <h4>{{i.item_price}}.Rs</h4>
+                                <h4>{{i.Descriptive}}</h4>
+                                <button ><a href="{% url 'History_page' i.item_name i.item_price i.item_quantity request.user %}">Buy</a></button> 
+                {% endfor %}
+{% else %} 
+<h1>Please Login First</h1>
+{% endif %}
+</center>   
+</body>
+</html>
+
+<!--    {% for i in groceries %}
+    <li>Fruit: {{i.item_name}}</li>
+    <li>Price:  {{i.item_price}}</li>
+    <li>Kg:     {{i.item_quantity}}</li>
+    <li>Colour: {{i.item_colour}}</li>
+    <li>Descriptive: {{i.Descriptive}}</li><br>
+    {% endfor %}-->
